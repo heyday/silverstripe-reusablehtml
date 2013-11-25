@@ -2,8 +2,6 @@
 
 ## Installation (with composer)
 
-## Usage
+	$ composer require camspiers/silverstripe-reusablehtml:dev-master
 
-## Unit testing
-    $ composer install --dev
-    $ vendor/bin/phpunit
+## Usage
