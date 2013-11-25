@@ -1,0 +1,1 @@
+<div class="form-group $IfClass("form", $type)<% if $classes %> $classes<% end_if %>" <% dataattrs %>><% composed %></div>

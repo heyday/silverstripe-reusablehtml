@@ -1,0 +1,1 @@
+<div class="con<% if $classes %> $classes<% end_if %>"><% composed %></div>

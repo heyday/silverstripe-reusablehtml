@@ -1,0 +1,1 @@
+<div class="hor<% if $cols %> l-col-$cols<% end_if %> l-content"></div>

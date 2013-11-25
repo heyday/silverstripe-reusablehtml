@@ -1,0 +1,2 @@
+<% required $size %>
+<div class="l-col-$size<% if $push %> l-push-$push<% end_if %><% if $pull %> l-pull-$pull<% end_if %><% if not $nopadding %> l-padding<% end_if %><% if $classes %> $classes<% end_if %>" <% dataattrs %>><% composed %></div>

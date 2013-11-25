@@ -1,0 +1,6 @@
+Injector:
+  SSTemplateParser:
+    properties:
+      openBlocks:
+        required: "ReusableHtmlHelpers::required"
+        dataattrs: "ReusableHtmlHelpers::dataattrs"
