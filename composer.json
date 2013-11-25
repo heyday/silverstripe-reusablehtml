@@ -8,5 +8,8 @@
 			"name": "Cam Spiers",
 			"email": "camspiers@gmail.com"
 		}
-	]
+	],
+	"require": {
+		"heyday/silverstripe-composeparser": "dev-master"
+	}
 }
