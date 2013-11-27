@@ -6,7 +6,17 @@
 		<% if $type = 'horizontal' %>
 			<% required $leftsize, $rightsize %>
 
-			<:bsfieldsethorizontal fields=$form.Fields leftsize=$leftsize rightsize=$rightsize />
+			<% loop $form.fields %>
+				<% if $IsA($class, 'FieldGroup') %>
+					<:bsfieldset legend=$Me.Legend>
+						<% loop $Me.FieldList %>
+							<:bsfieldhorizontal field=$Me leftsize=$leftsize rightsize=$rightsize />
+						<% end_loop %>
+					</:bsfieldset>
+				<% else %>
+					<:bsfieldhorizontal field=$Me leftsize=$leftsize rightsize=$rightsize />
+				<% end_if %>
+			<% end_loop %>
 
 			<:bsformgroup>
 				<:column size=$rightsize push=$leftsize>
