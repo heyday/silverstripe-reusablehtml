@@ -75,7 +75,8 @@ class ReusableHtmlHelpers implements TemplateGlobalProvider
     public static function createDataAttributes($scope)
     {
         $content = '';
-        $overlay =  (new ReflectionObject($scope))->getProperty('overlay');
+        $object = new ReflectionObject($scope);
+        $overlay = $object->getProperty('overlay');
         $overlay->setAccessible(true);
         foreach ($overlay->getValue($scope) as $name => $value) {
             if (substr($name, 0, 5) == "data-") {
