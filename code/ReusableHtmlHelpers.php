@@ -34,7 +34,7 @@ class ReusableHtmlHelpers implements TemplateGlobalProvider
 
         return new ArrayList($options);
     }
-    
+
     public static function Multiply($left, $right)
     {
         return $left * $right;
@@ -45,8 +45,23 @@ class ReusableHtmlHelpers implements TemplateGlobalProvider
         return $prefix && $suffix ? (string) $prefix . '-' . $suffix : '';
     }
 
+    /**
+     * Check if class1 is the same as, or a subclass of, class2
+     *
+     * @param $class1
+     * @param $class2
+     * @return bool
+     */
     public static function IsA($class1, $class2)
     {
+        // Note: PHP versions before 5.3.9 don't allow class1 to be a string...
+        if (version_compare(phpversion(), '5.3.9', '<')) {
+            // Convert class 1 to a string, if it isn't already.
+            if (!is_string($class1)) {
+                $class1 = get_class($class1);
+            }
+            return ((strcasecmp($class1, $class2) == 0) || (is_subclass_of($class1, $class2)));
+        }
         return is_a($class1, $class2, true);
     }
 
@@ -55,15 +70,15 @@ class ReusableHtmlHelpers implements TemplateGlobalProvider
         if ($res['ArgumentCount'] === 0) {
             throw new Exception('<% required %> must have at least 1 argument');
         }
-        
+
         $php = 'ReusableHtmlHelpers::checkRequired(array(';
-        
+
         foreach ($res['Arguments'] as $arg) {
             $php .= "'{$arg['text']}' => ".str_replace('$$FINAL', 'hasValue', ($arg['ArgumentMode'] == 'default') ? $arg['lookup_php'] : $arg['php']) . ',';
         }
-        
+
         $php = substr($php, 0, -1) . '));';
-        
+
         return $php . (isset($res['Template']) ? $res['Template']['php'] : '');
     }
 
@@ -71,7 +86,7 @@ class ReusableHtmlHelpers implements TemplateGlobalProvider
     {
         return '$val .= ReusableHtmlHelpers::createDataAttributes($scope);';
     }
-    
+
     public static function createDataAttributes($scope)
     {
         $content = '';
@@ -85,7 +100,7 @@ class ReusableHtmlHelpers implements TemplateGlobalProvider
         }
         return rtrim($content);
     }
-    
+
     public static function checkRequired($check)
     {
         foreach ($check as $name => $value) {
