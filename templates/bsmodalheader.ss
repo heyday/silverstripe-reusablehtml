@@ -1,0 +1,1 @@
+<div class="modal-header"><% composed %></div>
