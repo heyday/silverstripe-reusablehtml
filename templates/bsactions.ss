@@ -5,6 +5,6 @@
 	<% else_if $IsA($Me.class, 'FormAction')  %>
 		<:bsbutton type="submit" style="primary">$Title</:bsbutton>
 	<% else %>
-		$Field
+		$Me
 	<% end_if %>
 <% end_loop %>
