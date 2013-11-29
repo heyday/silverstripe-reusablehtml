@@ -1,5 +1,5 @@
 <% required $form %>
-<form class="<% if $type %>form-$type<%end_if %><% if $classes %> $classes<% end_if %>" $form.AttributesHTML <% dataattrs %><% if novalidate %>novalidate<% end_if %>>
+<form class="<% if $type %>form-$type<%end_if %><% if $classes %> $classes<% end_if %>" $form.AttributesHTML <% dataattrs %><% if novalidate %> novalidate<% end_if %>>
 	<% if $Composed %>
 		<% composed %>
 	<% else %>
