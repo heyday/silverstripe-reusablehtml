@@ -3,6 +3,10 @@
 	<% if $Composed %>
 		<% composed %>
 	<% else %>
+		<% if $form.Message %>
+			<:bsalert type="danger">$form.Message</:bsalert>
+		<% end_if %>
+		
 		<% if $type = 'horizontal' %>
 			<% required $leftsize, $rightsize %>
 
