@@ -1,12 +1,19 @@
 <% required $form %>
+
+<% if $form.Message %>
+	<% if $form.MessageType == 'bad' %>
+		<:bsalert type="danger">$form.Message</:bsalert>
+	<% else_if $form.MessageType == 'good' %>
+		<:bsalert type="success">$form.Message</:bsalert>
+	<% else %>
+		<:bsalert type="warning">$form.Message</:bsalert>
+	<% end_if %>
+<% end_if %>
+
 <form class="<% if $type %>form-$type<%end_if %><% if $classes %> $classes<% end_if %>" $form.AttributesHTML <% dataattrs %><% if novalidate %> novalidate<% end_if %>>
 	<% if $Composed %>
 		<% composed %>
 	<% else %>
-		<% if $form.Message %>
-			<:bsalert type="danger">$form.Message</:bsalert>
-		<% end_if %>
-		
 		<% if $type = 'horizontal' %>
 			<% required $leftsize, $rightsize %>
 
