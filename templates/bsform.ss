@@ -8,6 +8,7 @@
 	<% else %>
 		<:bsalert type="warning">$form.Message</:bsalert>
 	<% end_if %>
+	$form.clearMessage
 <% end_if %>
 
 <form class="<% if $type %>form-$type<%end_if %><% if $classes %> $classes<% end_if %>" $form.AttributesHTML <% dataattrs %><% if novalidate %> novalidate<% end_if %>>
