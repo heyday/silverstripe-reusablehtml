@@ -6,6 +6,8 @@
 	<% loop $field.FieldList %>
 		<:bsfieldhorizontal field=$me leftsize=$leftsize rightsize=$rightsize />
 	<% end_loop %>
+<% else_if $IsA($class, 'HiddenField') %>
+	<:bsinputfield field=$field />
 <% else %>
 <:bsformgroup classes="<% if $required %>form-constaint-required<% end_if %>">
 	<% if $IsA($class, 'HiddenField') %>

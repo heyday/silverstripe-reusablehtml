@@ -35,10 +35,37 @@
 					<:bsactions actions=$form.Actions />
 				</:column>
 			</:bsformgroup>
-		<% else %>
-			<:bsfieldsetinline fields=$form.Fields />
+
+		<% else_if $type = 'inline' %>
+			<% loop $form.fields %>
+				<% if $IsA($class, 'FieldGroup') %>
+					<:bsfieldset legend=$Me.Legend>
+						<% loop $Me.FieldList %>
+							<:bsfieldinline field=$Me />
+						<% end_loop %>
+					</:bsfieldset>
+				<% else %>
+					<:bsfieldinline field=$Me />
+				<% end_if %>
+			<% end_loop %>
 
 			<:bsformgroup>
+				<:bsactions actions=$form.Actions />
+			</:bsformgroup>
+		<% else %>
+			<% loop $form.fields %>
+				<% if $IsA($class, 'FieldGroup') %>
+					<:bsfieldset legend=$Me.Legend>
+						<% loop $Me.FieldList %>
+							<:bsfieldnormal field=$Me />
+						<% end_loop %>
+					</:bsfieldset>
+				<% else %>
+					<:bsfieldnormal field=$Me />
+				<% end_if %>
+			<% end_loop %>
+
+			<:bsformgroup classes="l-padding">
 				<:bsactions actions=$form.Actions />
 			</:bsformgroup>
 		<% end_if %>
