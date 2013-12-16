@@ -4,7 +4,7 @@
 <% if $IsA($class, 'FieldGroup') %>
 	<br />
 	<% loop $field.FieldList %>
-		<:bsfieldnormal field=$me leftsize=$leftsize rightsize=$rightsize />
+		<:bsfieldnormal field=$me />
 	<% end_loop %>
 <% else_if $IsA($class, 'HiddenField') %>
 	<:bsinputfield field=$field />

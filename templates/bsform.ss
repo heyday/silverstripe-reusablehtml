@@ -16,22 +16,22 @@
 		<% composed %>
 	<% else %>
 		<% if $type = 'horizontal' %>
-			<% required $leftsize, $rightsize %>
+			<% required $leftsize %>
 
 			<% loop $form.fields %>
 				<% if $IsA($class, 'FieldGroup') %>
 					<:bsfieldset legend=$Me.Legend>
 						<% loop $Me.FieldList %>
-							<:bsfieldhorizontal field=$Me nopadding=$nopadding leftsize=$leftsize rightsize=$rightsize />
+							<:bsfieldhorizontal field=$Me nopadding=$nopadding leftsize=$leftsize />
 						<% end_loop %>
 					</:bsfieldset>
 				<% else %>
-					<:bsfieldhorizontal field=$Me nopadding=$nopadding leftsize=$leftsize rightsize=$rightsize />
+					<:bsfieldhorizontal field=$Me nopadding=$nopadding leftsize=$leftsize />
 				<% end_if %>
 			<% end_loop %>
 
 			<:bsformgroup>
-				<:column size=$rightsize push=$leftsize nopadding=$nopadding>
+				<:column push=$leftsize nopadding=$nopadding>
 					<:bsactions actions=$form.Actions />
 				</:column>
 			</:bsformgroup>

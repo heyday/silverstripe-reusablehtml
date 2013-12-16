@@ -1,10 +1,10 @@
-<% required $field, $leftsize, $rightsize %>
+<% required $field, $leftsize %>
 
 
 <% if $IsA($class, 'FieldGroup') %>
 	<br />
 	<% loop $field.FieldList %>
-		<:bsfieldhorizontal field=$me leftsize=$leftsize rightsize=$rightsize nopadding=$nopadding />
+		<:bsfieldhorizontal field=$me leftsize=$leftsize nopadding=$nopadding />
 	<% end_loop %>
 <% else_if $IsA($class, 'HiddenField') %>
 	<:bsinputfield field=$field />
@@ -13,7 +13,7 @@
 	<% if $IsA($class, 'HiddenField') %>
 		$field.addExtraClass("form-control")
 	<% else_if $IsA($class, 'CheckboxField') %>
-		<:column size=$rightsize push=$leftsize nopadding=$nopadding>
+		<:column nopadding=$nopadding push=$leftsize>
 			<:bscheckboxfield name=$field.getName checked=$field.value value="1" title=$field.Title />
 
 			<% if $field.rightTitle %>
@@ -27,7 +27,7 @@
 			</label>
 		<% end_if %>
 
-		<:column size=$rightsize nopadding=$nopadding push="<% if not $field.Title %>$leftsize<% end_if %>">
+		<:column nopadding=$nopadding push=$leftsize>
 			<:bscheckboxsetfield field=$field />
 
 			<% if $field.rightTitle %>
@@ -41,7 +41,7 @@
 			</label>
 		<% end_if %>
 
-		<:column size=$rightsize nopadding=$nopadding push="<% if not $field.Title %>$leftsize<% end_if %>">
+		<:column nopadding=$nopadding push=$leftsize>
 			<:bsoptionssetfield field=$field />
 
 			<% if $field.rightTitle %>
@@ -55,7 +55,7 @@
 			</label>
 		<% end_if %>
 
-		<:column size=$rightsize nopadding=$nopadding push="<% if not $field.Title %>$leftsize<% end_if %>">
+		<:column nopadding=$nopadding push=$leftsize>
 			<:bsfilefield field=$field />
 
 			<% if $field.rightTitle %>
@@ -63,7 +63,7 @@
 			<% end_if %>
 		</:column>
 	<% else_if $IsA($class, 'LiteralField') %>
-		<:column size=$rightsize push=$leftsize nopadding=$nopadding>
+		<:column nopadding=$nopadding push=$leftsize>
 			$field.content
 		</:column>
 	<% else %>
@@ -73,7 +73,7 @@
 			</label>
 		<% end_if %>
 
-		<:column size=$rightsize nopadding=$nopadding push="<% if not $field.Title %>$leftsize<% end_if %>">
+		<:column nopadding=$nopadding push=$leftsize>
 			<:bsinputfield field=$field />
 
 			<% if $field.rightTitle %>
