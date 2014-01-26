@@ -10,6 +10,6 @@
 		}
 	],
 	"require": {
-		"heyday/silverstripe-composeparser": "dev-master"
+		"heyday/silverstripe-composeparser": "~0.1.0"
 	}
 }
