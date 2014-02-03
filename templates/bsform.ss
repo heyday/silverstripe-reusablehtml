@@ -4,7 +4,9 @@
 	<% if $form.MessageType == 'bad' %>
 		<:bsalert type="danger">$form.Message</:bsalert>
 	<% else_if $form.MessageType == 'good' %>
-		<:bsalert type="success">$form.Message</:bsalert>
+		<% if not $suppressSuccessMessage %>
+			<:bsalert type="success">$form.Message</:bsalert>
+		<% end_if %>
 	<% else %>
 		<:bsalert type="warning">$form.Message</:bsalert>
 	<% end_if %>
