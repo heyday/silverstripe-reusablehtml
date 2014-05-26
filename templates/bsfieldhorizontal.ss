@@ -9,7 +9,7 @@
 <% else_if $IsA($class, 'HiddenField') %>
 	<:bsinputfield field=$field />
 <% else %>
-<:bsformgroup classes="<% if $required %>form-constaint-required<% end_if %>">
+<:bsformgroup classes="<% if $required %>form-constaint-required<% end_if %><% if $field.Message %> has-error<% end_if %>">
 	<% if $IsA($class, 'HiddenField') %>
 		$field.addExtraClass("form-control")
 	<% else_if $IsA($class, 'CheckboxField') %>
@@ -60,6 +60,9 @@
 
 			<% if $field.rightTitle %>
 				<:bsinputinfo>$field.rightTitle</:bsinputinfo>
+			<% end_if %>
+			<% if $field.message %>
+				<:bsinputinfo>$field.Message</:bsinputinfo>
 			<% end_if %>
 		</:column>
 	<% else_if $IsA($class, 'LiteralField') %>
