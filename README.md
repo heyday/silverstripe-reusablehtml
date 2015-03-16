@@ -1,6 +1,6 @@
 # SilverStripe Reusable Html
 
-All of Bootstrap's boilerplate element structures as composable templates, as well as some other common HTML structures (using [heyday/silverstripe-composeparser](https://github.com/heyday/silverstripe-composeparser)).
+All of Bootstrap's boilerplate element structures as composable templates, as well as some other common HTML structures. Composable templates are achieved using [heyday/silverstripe-composeparser](https://github.com/heyday/silverstripe-composeparser), which also provides the short include syntax used in this readme (eg. `<:MyTemplate/>`).
 
 ## Installation (with composer)
 
