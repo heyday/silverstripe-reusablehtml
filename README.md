@@ -4,7 +4,7 @@ All of Bootstrap's boilerplate element structures as composable templates, as we
 
 ## Installation (with composer)
 
-	$ composer require camspiers/silverstripe-reusablehtml
+	$ composer require heyday/silverstripe-reusablehtml
 
 ## Usage example
 
